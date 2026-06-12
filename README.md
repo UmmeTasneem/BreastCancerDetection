@@ -15,7 +15,7 @@ Breast cancer is one of the leading causes of cancer-related deaths worldwide. E
 ```
 BreastCancerDetection/
 │
-├── FINAL_CODE.ipynb              # Main notebook: data loading, EDA, model training & evaluation
+├── FINAL_CODE.ipynb              # Main notebook: data loading, EDA, all model training & evaluation
 ├── EXTRA_METHOD_GIT.ipynb        # Additional model: PCXRNet34 custom architecture
 ├── Research Paper.docx   # Full research paper
 └── LINK OF THE DATA SET.docx     # Dataset source links
@@ -33,26 +33,28 @@ The dataset includes:
 - ROI mask images
 - Mass case descriptions (train & test CSV files)
 
-> 📎 Dataset links are available in `LINK OF THE DATA SET.docx`  
-> Dataset source: [Kaggle - CBIS-DDSM Breast Cancer Image Dataset](https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset)
+> 📎 Dataset source: [Kaggle - CBIS-DDSM Breast Cancer Image Dataset](https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset)
 
 ---
 
-## 🧠 Models Implemented
+## 🧠 Models & Results
 
-| Model | Type | Notes |
-|---|---|---|
-| **InceptionResNetV2** | Transfer Learning | Pre-trained on ImageNet |
-| **ResNet50** | Transfer Learning | Fine-tuned last 5 layers |
-| **VGG16** | Transfer Learning | Fine-tuned last 5 layers |
-| **VGG19** | Transfer Learning | Fine-tuned last 5 layers |
-| **PCXRNet34** | Custom CNN | Built from scratch (Extra Method) |
+All models trained for **10 epochs** with binary classification: `BENIGN` vs `MALIGNANT`
 
-All models use:
-- Binary classification: `BENIGN` vs `MALIGNANT`
-- Optimizer: Nadam / Adam
-- Loss: Categorical Crossentropy
-- Metrics: Accuracy, AUC, F1-Score, Cohen's Kappa
+| Model | Test Accuracy | Test AUC | F1 Score |
+|---|---|---|---|
+| **DenseNet169** | 72.35% | 0.7677 | 0.7184 |
+| **DenseNet121** | 70.59% | 0.7447 | 0.6988 |
+| **InceptionResNetV2** | 64.12% | 0.6996 | 0.6332 |
+| **MobileNetV2** | 61.76% | 0.6479 | 0.6176 |
+| **MobileNet** | 60.00% | 0.6516 | 0.5995 |
+| **VGG16** | 57.06% | 0.6337 | 0.5317 |
+| **InceptionV3** | 59.41% | 0.6462 | 0.5865 |
+| **ResNet50** | 52.35% | 0.5857 | 0.4804 |
+| **ResNet101** | 54.71% | 0.6122 | 0.3536 |
+| **VGG19** | 47.65% | 0.5179 | 0.4370 |
+
+> 🏆 **Best performing model: DenseNet169** with 72.35% accuracy and 0.7677 AUC
 
 ---
 
@@ -72,18 +74,23 @@ All models use:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/BreastCancerDetection.git
+   git clone https://github.com/UmmeTasneem/BreastCancerDetection.git
    cd BreastCancerDetection
    ```
 
-2. **Set up the dataset**  
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up the dataset**  
    Download the CBIS-DDSM dataset from Kaggle and place it under:
    ```
    ../input/cbis-ddsm-breast-cancer-image-dataset/
    ```
    Or run directly on **Kaggle Notebooks** (recommended — no setup needed).
 
-3. **Open the notebook**
+4. **Open the notebook**
    ```bash
    jupyter notebook FINAL_CODE.ipynb
    ```
@@ -92,22 +99,20 @@ All models use:
 
 ---
 
-## 📈 Results
+## 📈 Evaluation Metrics
 
-Training and validation accuracy curves are plotted for each model. Evaluation metrics include:
-- Accuracy
-- AUC (Area Under ROC Curve)
-- F1 Score
-- Cohen's Kappa
-
-Refer to `FINAL_CODE.ipynb` for full results and `Research Paper.docx` for detailed analysis.
+Each model is evaluated using:
+- **Accuracy** — overall classification correctness
+- **AUC** — Area Under the ROC Curve
+- **F1 Score** — balance between precision and recall
+- **Cohen's Kappa** — agreement beyond chance
 
 ---
 
 ## 👩‍💻 Author
 
 **Umme Tasneem Firdose**  
-📄 [Research Paper included in repository]
+📄 Research paper included in repository
 
 ---
 
