@@ -17,7 +17,7 @@ BreastCancerDetection/
 │
 ├── FINAL_CODE.ipynb              # Main notebook: data loading, EDA, model training & evaluation
 ├── EXTRA_METHOD_GIT.ipynb        # Additional model: PCXRNet34 custom architecture
-├── 528 Research Paper_UmmeTasneemFirdose.docx   # Full research paper
+├── Research Paper.docx   # Full research paper
 └── LINK OF THE DATA SET.docx     # Dataset source links
 ```
 
@@ -100,7 +100,7 @@ Training and validation accuracy curves are plotted for each model. Evaluation m
 - F1 Score
 - Cohen's Kappa
 
-Refer to `FINAL_CODE.ipynb` for full results and `528 Research Paper_UmmeTasneemFirdose.docx` for detailed analysis.
+Refer to `FINAL_CODE.ipynb` for full results and `Research Paper.docx` for detailed analysis.
 
 ---
 
